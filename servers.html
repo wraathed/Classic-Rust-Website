@@ -8,10 +8,7 @@
 <body>
 
     <header>
-        <a href="index.html" class="logo">
-            <img src="assets/logo.png" alt="Classic Rust Logo">
-        </a>
-        
+        <a href="index.html" class="logo"><img src="assets/logo.png" alt="Classic Rust Logo"></a>
         <nav>
             <ul>
                 <li><a href="servers.html">Servers</a></li>
@@ -21,7 +18,6 @@
             </ul>
         </nav>
         <div id="auth-section">
-            <!-- UPDATED: Points to Render Backend -->
             <a href="https://classic-rust-api.onrender.com/auth/steam" class="steam-login">
                 <img src="assets/steam.png" alt="Steam">
                 Sign in with Steam
@@ -56,12 +52,12 @@
                 <p class="credits">Designed by <a href="https://aetheriwebdesign.com/" target="_blank">Aetheri Web Design</a></p>
             </div>
             <div class="footer-right">
-            <a href="#">Terms of Service</a>
-            <a href="#">Privacy Policy</a>
-            <a href="https://discord.gg/QdQUvPvg" class="btn btn-discord-small">
-            <img src="assets/discord.png" alt="Discord" style="width: 20px; height: 20px;">
-            Join Discord
-            </a>
+                <a href="#">Terms of Service</a>
+                <a href="#">Privacy Policy</a>
+                <a href="https://discord.gg/QdQUvPvg" class="btn btn-discord-small">
+                    <img src="assets/discord.png" alt="Discord" style="width: 20px; height: 20px;">
+                    Join Discord
+                </a>
             </div>
         </div>
     </footer>
@@ -69,7 +65,9 @@
     <script src="auth.js"></script>
     <script src="loader.js"></script>
     <script>
-        fetch('/api/servers')
+        const API_BASE = 'https://classic-rust-api.onrender.com';
+
+        fetch(`${API_BASE}/api/servers`)
             .then(res => res.json())
             .then(servers => {
                 const tbody = document.getElementById('server-table-body');
